@@ -12,8 +12,8 @@
 #import "VWWGOLPhysics.h"
 
 
-#define VWW_VERBOSE_LOGGING 1
-
+//#define VWW_VERBOSE_LOGGING 1
+#define VWW_BRUTE_FORCE_DEAD_CELLS 1
 
 @interface VWWGOLPhysics ()
 @property (nonatomic) NSInteger width;
@@ -85,10 +85,16 @@
     return YES;
 }
 
+-(void)killAllCells{
+    [self stop];
+    [self.cells removeAllObjects];
+    [self.evolvedCells removeAllObjects];
+}
+
 -(void)start{
     if(_running == YES) return;
     _running = YES;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.10 target:self selector:@selector(processTimer) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(processTimer) userInfo:nil repeats:YES];
     NSLog(@"******************* BEGIN");
 }
 -(void)stop{
@@ -105,6 +111,10 @@
 -(void)dealloc{
     [self.timer invalidate];
     _timer = nil;
+    
+    [self.cells removeAllObjects];
+    [self.evolvedCells removeAllObjects];
+    
 }
 
 
@@ -154,7 +164,7 @@
     return [self cellAtX:x andY:y];
 }
 
--(NSArray*)getNeightborCellsFromCell:(VWWGOLCell*)cell{
+-(NSArray*)getLivingNeighborCellsFromCell:(VWWGOLCell*)cell{
     NSMutableArray *neightborCells = [@[]mutableCopy];
     
     VWWGOLCell *cell0 = [self neighborCell0FromCell:cell];
@@ -184,21 +194,55 @@
     return [NSArray arrayWithArray:neightborCells];
 }
 
+
+//-(NSArray*)getDeadNeighborCellsFromCell:(VWWGOLCell*)cell{
+//    NSMutableArray *neightborCells = [@[]mutableCopy];
+//    
+//    VWWGOLCell *cell0 = [self neighborCell0FromCell:cell];
+//    if(cell0 == nil) [neightborCells addObject:cell0];
+//    
+//    VWWGOLCell *cell1 = [self neighborCell1FromCell:cell];
+//    if(cell1) [neightborCells addObject:cell1];
+//    
+//    VWWGOLCell *cell2 = [self neighborCell2FromCell:cell];
+//    if(cell2) [neightborCells addObject:cell2];
+//    
+//    VWWGOLCell *cell3 = [self neighborCell3FromCell:cell];
+//    if(cell3) [neightborCells addObject:cell3];
+//    
+//    VWWGOLCell *cell4 = [self neighborCell4FromCell:cell];
+//    if(cell4) [neightborCells addObject:cell4];
+//    
+//    VWWGOLCell *cell5 = [self neighborCell5FromCell:cell];
+//    if(cell5) [neightborCells addObject:cell5];
+//    
+//    VWWGOLCell *cell6 = [self neighborCell6FromCell:cell];
+//    if(cell6) [neightborCells addObject:cell6];
+//    
+//    VWWGOLCell *cell7 = [self neighborCell7FromCell:cell];
+//    if(cell7) [neightborCells addObject:cell7];
+//    
+//    return [NSArray arrayWithArray:neightborCells];
+//}
+
+
+
 //Any live cell with fewer than two live neighbours dies, as if caused by under-population.
 -(BOOL)cellPassesRule1:(VWWGOLCell*)cell{
-    NSArray *neighborCells = [self getNeightborCellsFromCell:cell];
+    NSArray *neighborCells = [self getLivingNeighborCellsFromCell:cell];
     if(neighborCells.count < 2){
 #if defined(VWW_VERBOSE_LOGGING)
         NSLog(@"%@ died from rule 1. %d (<2)", cell, neighborCells.count);
 #endif
         return NO;
     }
+
     return YES;
 }
 
 //Any live cell with two or three live neighbours lives on to the next generation.
 -(BOOL)cellPassesRule2:(VWWGOLCell*)cell{
-    NSArray *neighborCells = [self getNeightborCellsFromCell:cell];
+    NSArray *neighborCells = [self getLivingNeighborCellsFromCell:cell];
     if(neighborCells.count == 2 || neighborCells.count == 3){
         return YES;
     }
@@ -211,7 +255,7 @@
 
 //Any live cell with more than three live neighbours dies, as if by overcrowding.
 -(BOOL)cellPassesRule3:(VWWGOLCell*)cell{
-    NSArray *neighborCells = [self getNeightborCellsFromCell:cell];
+    NSArray *neighborCells = [self getLivingNeighborCellsFromCell:cell];
     if(neighborCells.count > 3){
 #if defined(VWW_VERBOSE_LOGGING)
         NSLog(@"%@ died from rule 3. %d (>3)", cell, neighborCells.count);
@@ -224,7 +268,7 @@
 
 //Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
 -(BOOL)cellPassesRule4:(VWWGOLCell*)cell{
-    NSArray *neighborCells = [self getNeightborCellsFromCell:cell];
+    NSArray *neighborCells = [self getLivingNeighborCellsFromCell:cell];
     if(neighborCells.count == 3){
 #if defined(VWW_VERBOSE_LOGGING)
         NSLog(@"%@ birthed from rule 4. %d (==3)", cell, neighborCells.count);
@@ -267,7 +311,9 @@
     }
     return [NSArray arrayWithArray:deadCells];
 }
+
 -(void)processDeadCells{
+#if defined(VWW_BRUTE_FORCE_DEAD_CELLS)
     NSArray *deadCells = [self calculateDeadCells];
     
     NSLog(@"cells=%d alive=%d dead=%d", self.width * self.height, self.cells.count, deadCells.count);
@@ -278,27 +324,39 @@
             [self evolveCell:cell];
         }
     }
+#else
+    
+    
+    for(NSInteger index = 0; index < self.cells.count; index++){
+        
+    }
+    
+#endif
 }
 
 
 -(void)processTimer{
 
     dispatch_async(self.queue, ^{
-    NSLog(@"---------- Evolving a generation");
-        [self.evolvedCells removeAllObjects];
-        [self processLivingCells];
-        [self processDeadCells];
+        @autoreleasepool {
+            
         
-        //    [self printCells];
-        
-        if([self checkForStaleGeneration] == YES){
-            // TODO:
+            NSLog(@"---------- Evolving a generation");
+            [self.evolvedCells removeAllObjects];
+            [self processLivingCells];
+            [self processDeadCells];
+            
+            //    [self printCells];
+            
+            //        if([self checkForStaleGeneration] == YES){
+            //            // TODO:
+            //        }
+            
+            [self.cells removeAllObjects];
+            self.cells = [[NSArray arrayWithArray:self.evolvedCells]mutableCopy];
+            
         }
-        
-        [self.cells removeAllObjects];
-        self.cells = [[NSArray arrayWithArray:self.evolvedCells]mutableCopy];
-        
-        dispatch_sync(dispatch_get_main_queue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
             [self.delegate renderCells];
             NSLog(@"");
         });

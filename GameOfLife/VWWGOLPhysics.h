@@ -29,6 +29,7 @@
 -(id)initWithWidth:(NSInteger)width height:(NSInteger)height;
 -(BOOL)addCell:(VWWGOLCell*)newCell;
 -(VWWGOLCell*)cellAtIndex:(NSInteger)index;
+-(void)killAllCells;
 -(void)start;
 -(void)stop;
 @end

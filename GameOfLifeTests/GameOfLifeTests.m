@@ -29,6 +29,12 @@
     [super tearDown];
 }
 
+//Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+// xxxxx
+// x1xxx
+// x02xx
+// xxxxx
+// xxxxx
 - (void)testRule1a
 {
     VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
@@ -43,7 +49,12 @@
     XCTAssertTrue([self.physics cellPassesRule1:cell], @"failed to pass test for rule 1");
 }
 
-
+//Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+// xxxxx
+// x1xxx
+// x0xxx
+// xxxxx
+// xxxxx
 - (void)testRule1b
 {
     VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
@@ -55,7 +66,12 @@
     XCTAssertFalse([self.physics cellPassesRule1:cell], @"failed to pass test for rule 1");
 }
 
-
+//Any live cell with fewer than two live neighbours dies, as if caused by under-population.
+// xxxxx
+// xxxxx
+// x0xxx
+// xxxxx
+// xxxxx
 - (void)testRule1c
 {
     VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
@@ -65,6 +81,12 @@
 }
 
 
+//Any live cell with two or three live neighbours lives on to the next generation.
+// xxxxx
+// x1xxx
+// x02xx
+// xxxxx
+// xxxxx
 
 - (void)testRule2a
 {
@@ -80,7 +102,12 @@
     XCTAssertTrue([self.physics cellPassesRule2:cell], @"failed to pass test for rule 2");
 }
 
-
+//Any live cell with two or three live neighbours lives on to the next generation.
+// xxxxx
+// x1xxx
+// 302xx
+// xxxxx
+// xxxxx
 - (void)testRule2b
 {
     VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
@@ -99,7 +126,7 @@
 }
 
 
-
+//Any live cell with two or three live neighbours lives on to the next generation.
 // xxxxx
 // x1xxx
 // 302xx

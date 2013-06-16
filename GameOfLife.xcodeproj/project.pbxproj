@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C638845B176E3B810089CE9D /* VWWCGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C638845A176E3B810089CE9D /* VWWCGViewController.m */; };
+		C6388461176E3D160089CE9D /* VWWCGView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388460176E3D160089CE9D /* VWWCGView.m */; };
 		C6952EC1176DABA0001E43DC /* VWWCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */; };
 		C6BBEDEB176D8F4500C85BAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEA176D8F4500C85BAE /* Foundation.framework */; };
 		C6BBEDED176D8F4500C85BAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEC176D8F4500C85BAE /* CoreGraphics.framework */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C6388459176E3B810089CE9D /* VWWCGViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCGViewController.h; sourceTree = "<group>"; };
+		C638845A176E3B810089CE9D /* VWWCGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGViewController.m; sourceTree = "<group>"; };
+		C638845F176E3D160089CE9D /* VWWCGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCGView.h; sourceTree = "<group>"; };
+		C6388460176E3D160089CE9D /* VWWCGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGView.m; sourceTree = "<group>"; };
 		C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C6BBEDE7176D8F4500C85BAE /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +97,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C6388457176E3B5F0089CE9D /* CV */ = {
+			isa = PBXGroup;
+			children = (
+				C6BBEDFF176D8F4500C85BAE /* VWWViewController.h */,
+				C6BBEE00176D8F4500C85BAE /* VWWViewController.m */,
+				C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */,
+				C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */,
+				C6BBEE25176D91B100C85BAE /* VWWCollectionViewCell.h */,
+				C6BBEE26176D91B100C85BAE /* VWWCollectionViewCell.m */,
+			);
+			name = CV;
+			sourceTree = "<group>";
+		};
+		C6388458176E3B6C0089CE9D /* CG */ = {
+			isa = PBXGroup;
+			children = (
+				C6388459176E3B810089CE9D /* VWWCGViewController.h */,
+				C638845A176E3B810089CE9D /* VWWCGViewController.m */,
+				C638845F176E3D160089CE9D /* VWWCGView.h */,
+				C6388460176E3D160089CE9D /* VWWCGView.m */,
+			);
+			name = CG;
+			sourceTree = "<group>";
+		};
 		C6BBEDDE176D8F4500C85BAE = {
 			isa = PBXGroup;
 			children = (
@@ -168,12 +198,8 @@
 		C6BBEE28176D91B600C85BAE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6BBEDFF176D8F4500C85BAE /* VWWViewController.h */,
-				C6BBEE00176D8F4500C85BAE /* VWWViewController.m */,
-				C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */,
-				C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */,
-				C6BBEE25176D91B100C85BAE /* VWWCollectionViewCell.h */,
-				C6BBEE26176D91B100C85BAE /* VWWCollectionViewCell.m */,
+				C6388458176E3B6C0089CE9D /* CG */,
+				C6388457176E3B5F0089CE9D /* CV */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -300,8 +326,10 @@
 				C6BBEE21176D8F5F00C85BAE /* VWWGOLCell.m in Sources */,
 				C6952EC1176DABA0001E43DC /* VWWCollectionViewFlowLayout.m in Sources */,
 				C6BBEDF7176D8F4500C85BAE /* main.m in Sources */,
+				C638845B176E3B810089CE9D /* VWWCGViewController.m in Sources */,
 				C6BBEE24176D8F7300C85BAE /* VWWGOLPhysics.m in Sources */,
 				C6BBEDFB176D8F4500C85BAE /* VWWAppDelegate.m in Sources */,
+				C6388461176E3D160089CE9D /* VWWCGView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

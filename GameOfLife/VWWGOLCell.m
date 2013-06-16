@@ -45,7 +45,7 @@
         CGFloat red, green, blue, alpha;
         color = [UIColor colorWithRed:(random()%100)/(float)100 green:(random()%100)/(float)100 blue:(random()%100)/(float)100 alpha:1];
         [color getRed:&red green:&green blue:&blue alpha:&alpha];
-        if(red > 0.5 && green > 0.5 && blue > 0.5){
+        if(red > 0.10 && green > 0.10 && blue > 0.10){
             break;
         }
     }

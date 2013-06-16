@@ -15,7 +15,7 @@
 #define WIDTH 20
 #define HEIGHT 20
 
-
+static NSString *kSegueCVToCG = @"segueCVToCG";
 
 @interface VWWViewController () <VWWGOLPhysicsDelegate>
 @property (nonatomic, strong) VWWGOLPhysics *physics;
@@ -78,6 +78,11 @@
 }
 
 
+- (IBAction)useCGButtonTouchUpInside:(id)sender {
+    [self performSegueWithIdentifier:kSegueCVToCG sender:self];
+}
+
+
 #pragma mark UICollectionViewDatasource
 
 
@@ -107,10 +112,12 @@
     NSInteger x = 0, y = 0;
     x = indexPath.item / self.physics.width;
     y = indexPath.item - x * self.physics.width;
-    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:x andY:y alive:YES];
+    VWWGOLCell *golCell = [[VWWGOLCell alloc]initWithPositionX:x andY:y alive:YES];
     
-    if([self.physics addCell:cell]){
-        [self.collectionView reloadData];
+    if([self.physics addCell:golCell]){
+        VWWCollectionViewCell *cell = (VWWCollectionViewCell*)[collectionView cellForItemAtIndexPath:indexPath];
+        cell.cell = golCell;
+//        [self.collectionView reloadData];
     }
 }
 
@@ -140,7 +147,7 @@
 //    return 0; // This is the minimum inter item spacing, can be more
 //}
 
-#pragma makr Implements VWWGOLPhysicsDelegate
+#pragma mark Implements VWWGOLPhysicsDelegate
 -(void)renderCells{
     
     [self.collectionView reloadData];
