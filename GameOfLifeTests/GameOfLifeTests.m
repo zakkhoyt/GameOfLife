@@ -29,22 +29,110 @@
     [super tearDown];
 }
 
-- (void)testRule1
+- (void)testRule1a
 {
-//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-    
-    
-    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3];
+    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
     [self.physics addCell:cell];
 
-    VWWGOLCell *cell1 = [[VWWGOLCell alloc]initWithPositionX:2 andY:2];
+    VWWGOLCell *cell1 = [[VWWGOLCell alloc]initWithPositionX:2 andY:2 alive:YES];
     [self.physics addCell:cell1];
 
-    VWWGOLCell *cell2 = [[VWWGOLCell alloc]initWithPositionX:3 andY:3];
+    VWWGOLCell *cell2 = [[VWWGOLCell alloc]initWithPositionX:3 andY:3 alive:YES];
     [self.physics addCell:cell2];
 
-    
     XCTAssertTrue([self.physics cellPassesRule1:cell], @"failed to pass test for rule 1");
 }
+
+
+- (void)testRule1b
+{
+    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
+    [self.physics addCell:cell];
+    
+    VWWGOLCell *cell1 = [[VWWGOLCell alloc]initWithPositionX:2 andY:2 alive:YES];
+    [self.physics addCell:cell1];
+    
+    XCTAssertFalse([self.physics cellPassesRule1:cell], @"failed to pass test for rule 1");
+}
+
+
+- (void)testRule1c
+{
+    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
+    [self.physics addCell:cell];
+    
+    XCTAssertFalse([self.physics cellPassesRule1:cell], @"failed to pass test for rule 1");
+}
+
+
+
+- (void)testRule2a
+{
+    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
+    [self.physics addCell:cell];
+    
+    VWWGOLCell *cell1 = [[VWWGOLCell alloc]initWithPositionX:2 andY:2 alive:YES];
+    [self.physics addCell:cell1];
+    
+    VWWGOLCell *cell2 = [[VWWGOLCell alloc]initWithPositionX:3 andY:3 alive:YES];
+    [self.physics addCell:cell2];
+    
+    XCTAssertTrue([self.physics cellPassesRule2:cell], @"failed to pass test for rule 2");
+}
+
+
+- (void)testRule2b
+{
+    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
+    [self.physics addCell:cell];
+    
+    VWWGOLCell *cell1 = [[VWWGOLCell alloc]initWithPositionX:2 andY:2 alive:YES];
+    [self.physics addCell:cell1];
+    
+    VWWGOLCell *cell2 = [[VWWGOLCell alloc]initWithPositionX:3 andY:3 alive:YES];
+    [self.physics addCell:cell2];
+
+    VWWGOLCell *cell3 = [[VWWGOLCell alloc]initWithPositionX:1 andY:3 alive:YES];
+    [self.physics addCell:cell3];
+    
+    XCTAssertTrue([self.physics cellPassesRule2:cell], @"failed to pass test for rule 2");
+}
+
+
+
+// xxxxx
+// x1xxx
+// 302xx
+// x4xxx
+// xxxxx
+- (void)testRule2c
+{
+    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:2 andY:3 alive:YES];
+    [self.physics addCell:cell];
+    
+    VWWGOLCell *cell1 = [[VWWGOLCell alloc]initWithPositionX:2 andY:2 alive:YES];
+    [self.physics addCell:cell1];
+    
+    VWWGOLCell *cell2 = [[VWWGOLCell alloc]initWithPositionX:3 andY:3 alive:YES];
+    [self.physics addCell:cell2];
+    
+    VWWGOLCell *cell3 = [[VWWGOLCell alloc]initWithPositionX:1 andY:3 alive:YES];
+    [self.physics addCell:cell3];
+
+    VWWGOLCell *cell4 = [[VWWGOLCell alloc]initWithPositionX:2 andY:4 alive:YES];
+    [self.physics addCell:cell4];
+
+    
+    XCTAssertFalse([self.physics cellPassesRule2:cell], @"failed to pass test for rule 2");
+}
+
+
+
+
+
+
+
+
+
 
 @end

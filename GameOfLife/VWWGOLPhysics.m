@@ -80,11 +80,7 @@
         
     }
     
-    
     [self.cells addObject:newCell];
-//    [self birthCell:newCell];
-//    [self addCell:newCell];
-//    NSLog(@"Added new cell at %d %d", newCell.x, newCell.y);
     return YES;
 }
 
@@ -147,7 +143,7 @@
     return [self cellAtX:x andY:y];
 }
 -(VWWGOLCell*)neighborCell6FromCell:(VWWGOLCell*)cell{
-    NSInteger x = cell.x - 1;
+    NSInteger x = cell.x;
     NSInteger y = cell.y + 1;
     return [self cellAtX:x andY:y];
 }
@@ -241,7 +237,6 @@
 
 -(void)evolveCell:(VWWGOLCell*)cell{
     [self.evolvedCells addObject:cell];
-    //    NSLog(@"Birth cell %d %d", cell.x, cell.y);
 }
 
 
@@ -254,8 +249,6 @@
            [self cellPassesRule3:cell] == YES){
             [self evolveCell:cell];
         }
-        
-//        NSLog(@"asdfasd");
     }
 }
 
@@ -274,16 +267,6 @@
     return [NSArray arrayWithArray:deadCells];
 }
 -(void)processDeadCells{
-//    NSMutableArray *deadCells = [@[]mutableCopy];
-//    for(NSInteger x = 0; x < self.width; x++){
-//        for(NSInteger y = 0; y < self.height; y++){
-//            VWWGOLCell *cell = [self cellAtX:x andY:y];
-//            if(cell == nil){
-//                cell = [[VWWGOLCell alloc]initWithPositionX:x andY:y];
-//                [deadCells addObject:cell];
-//            }
-//        }
-//    }
     NSArray *deadCells = [self calculateDeadCells];
     
     NSLog(@"cells=%d alive=%d dead=%d", self.width * self.height, self.cells.count, deadCells.count);
@@ -291,9 +274,6 @@
     for(NSInteger d = 0; d < deadCells.count; d++){
         VWWGOLCell *cell = deadCells[d];
         if([self cellPassesRule4:cell] == YES){
-//            [self addCell:cell];
-//            [self birthCell:cell];
-            
             [self evolveCell:cell];
         }
     }
@@ -301,53 +281,41 @@
 
 
 -(void)processTimer{
-    //NSLog(@"%s", __func__);
-    NSLog(@"---------- Evolving one generation");
+
+    NSLog(@"---------- Evolving a generation");
     [self.evolvedCells removeAllObjects];
     [self processLivingCells];
     [self processDeadCells];
+    
+    [self printCells];
+    
     [self.cells removeAllObjects];
     self.cells = [[NSArray arrayWithArray:self.evolvedCells]mutableCopy];
-    [self printEvolvedCells];
+
     [self.delegate renderCells];
     NSLog(@"");
 }
 
-
--(void)printEvolvedCells{
-    NSInteger t = self.width * self.height;
+-(void)printCells{
     
-    NSMutableArray *allCells = [@[]mutableCopy];
-    [allCells addObjectsFromArray:self.evolvedCells];
-    [allCells addObjectsFromArray:[self calculateDeadCells]];
-    
-    
-    NSArray *allCellsSortedY;
-    allCellsSortedY= [allCells sortedArrayUsingComparator:^NSComparisonResult(VWWGOLCell *cell1, VWWGOLCell *cell2) {
-//        NSDate *first = [(Person*)a birthDate];
-//        NSDate *second = [(Person*)b birthDate];
-//        return [first compare:second];
-        return (cell1.y > cell2.y) ? YES : NO;
-    }];
-    
-    NSArray *allCellsSortedXY;
-    allCellsSortedXY= [allCells sortedArrayUsingComparator:^NSComparisonResult(VWWGOLCell *cell1, VWWGOLCell *cell2) {
-        return (cell1.x > cell2.x) ? YES : NO;
-    }];
-    
-    
-    
-    NSLog(@"************************************");
-    for(NSInteger y = 0; y < self.height; y++){
+    NSLog(@"***** current *******************************");
+    for(NSInteger x = 0; x < self.width; x++){
         NSMutableString *line = [[NSMutableString alloc]initWithString:@""];
-        for(NSInteger x = 0; x < self.width; x++){
-            VWWGOLCell *cell = [allCellsSortedXY objectAtIndex:x * self.width + y];
-            [line appendFormat:@"%@", cell.alive ? @"1" : @"0"];
+        for(NSInteger y = 0; y < self.height; y++){
+            if([self cellAtX:x andY:y]){
+                [line appendFormat:@"1"];
+            }
+            else{
+                [line appendFormat:@"0"];
+            }
         }
         NSLog(@"%@", line);
     }
-    NSLog(@"");
     
+    
+    
+    NSLog(@"");
 }
+
 
 @end
