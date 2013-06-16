@@ -27,15 +27,10 @@
 @property (nonatomic, readonly) BOOL running;
 
 -(id)initWithWidth:(NSInteger)width height:(NSInteger)height;
-
 -(BOOL)addCell:(VWWGOLCell*)newCell;
-
 -(VWWGOLCell*)cellAtIndex:(NSInteger)index;
-//-(VWWGOLCell*)cellAtX:(NSInteger)x andY:(NSInteger)y;
-
 -(void)start;
 -(void)stop;
-
 @end
 
 

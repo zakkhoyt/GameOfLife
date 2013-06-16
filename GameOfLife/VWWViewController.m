@@ -12,8 +12,8 @@
 #import "VWWGOLCell.h"
 #import "VWWCollectionViewFlowLayout.h"
 
-#define WIDTH 8
-#define HEIGHT 8
+#define WIDTH 20
+#define HEIGHT 20
 
 
 
@@ -30,8 +30,8 @@
 {
     [super viewDidLoad];
     
-//    self.flowLayout = [[VWWCollectionViewFlowLayout alloc]init];
-//    self.collectionView.collectionViewLayout = self.flowLayout;
+    self.flowLayout = [[VWWCollectionViewFlowLayout alloc]init];
+    self.collectionView.collectionViewLayout = self.flowLayout;
     self.physics = [[VWWGOLPhysics alloc]initWithWidth:WIDTH height:HEIGHT];
     self.physics.delegate = self;
 }
@@ -119,19 +119,26 @@
 - (CGSize)collectionView:(UICollectionView *)cv layout:(UICollectionViewLayout*)cvl sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGSize retval = CGSizeZero;
 //    NSLog(@"frame=%@", NSStringFromCGRect(self.collectionView.frame));
-    CGFloat contentWidth = (self.collectionView.frame.size.width - ((self.physics.width - 1)));
+    CGFloat contentWidth = (self.collectionView.frame.size.width - (self.physics.width - 1) * 2);
     CGFloat width = contentWidth / self.physics.width;
 //    CGFloat width = self.collectionView.frame.size.width / (float)self.physics.width;
+//    CGFloat width = 22;
     retval = CGSizeMake(width, width);
     return retval;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)cv layout:(UICollectionViewLayout*)cvl insetForSectionAtIndex:(NSInteger)section {
-    return UIEdgeInsetsZero;
+//    return UIEdgeInsetsZero;
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 
 
+//- (CGFloat)collectionView:(UICollectionView *)collectionView
+//                    ayout:(UICollectionViewLayout*)collectionViewLayout
+//minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+//    return 0; // This is the minimum inter item spacing, can be more
+//}
 
 #pragma makr Implements VWWGOLPhysicsDelegate
 -(void)renderCells{

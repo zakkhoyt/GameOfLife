@@ -22,6 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *evolvedCells;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) BOOL running;
+
 @end
 
 @implementation VWWGOLPhysics
@@ -51,7 +52,6 @@
 -(VWWGOLCell*)cellAtIndex:(NSInteger)index{
     NSInteger row = index / self.width;
     NSInteger column = index - row * self.width;
-//    NSLog(@"Looking for cell at %dx%d", row, column);
     for(VWWGOLCell *cell in self.cells){
         if(cell.x == row && cell.y == column) return cell;
     }
@@ -287,13 +287,30 @@
     [self processLivingCells];
     [self processDeadCells];
     
-    [self printCells];
+//    [self printCells];
     
+    if([self checkForStaleGeneration] == YES){
+        // TODO: 
+    }
+
     [self.cells removeAllObjects];
     self.cells = [[NSArray arrayWithArray:self.evolvedCells]mutableCopy];
 
     [self.delegate renderCells];
     NSLog(@"");
+}
+
+-(BOOL)checkForStaleGeneration{
+    // Check if nothing has changed
+    if(self.cells.count == self.evolvedCells.count){
+        for(VWWGOLCell *cell in self.cells){
+            for(VWWGOLCell *evolvedCell in self.evolvedCells){
+                if(cell.x != evolvedCell.x || cell.y != evolvedCell.y) return NO;
+            }
+        }
+    }
+    
+    return YES;
 }
 
 -(void)printCells{
@@ -312,9 +329,6 @@
         NSLog(@"%@", line);
     }
     
-    
-    
-    NSLog(@"");
 }
 
 

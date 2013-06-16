@@ -19,6 +19,7 @@ static const CGFloat kMaxZoom = 0.3f;
     if ((self = [super init])) {
 //        self.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         self.minimumLineSpacing = 2.0f;
+        self.minimumInteritemSpacing = 2.0;
     }
     return self;
 }
@@ -32,9 +33,7 @@ static const CGFloat kMaxZoom = 0.3f;
     CGFloat maxDistance = visibleRect.size.width * kMaxDistancePercentage;
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
     for (UICollectionViewLayoutAttributes *attributes in array) {
-        CGFloat w = visibleRect.size.width / 10;
-        attributes.frame = CGRectMake(0, 0, w, w);
-//        CGFloat distance = CGRectGetMidX(visibleRect) - attributes.center.x;
+///        CGFloat distance = CGRectGetMidX(visibleRect) - attributes.center.x;
 //        CGFloat normalizedDistance = distance / maxDistance; normalizedDistance = MIN(normalizedDistance, 1.0f);
 //        normalizedDistance = MAX(normalizedDistance, -1.0f);
 //        CGFloat rotation = normalizedDistance * kMaxRotation;
@@ -53,25 +52,25 @@ static const CGFloat kMaxZoom = 0.3f;
 }
 
 
-//- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
-//                                 withScrollingVelocity:(CGPoint)velocity{
-//    CGFloat offsetAdjustment = CGFLOAT_MAX;
-//    CGFloat horizontalCenter = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 2.0f);
-//    CGRect targetRect = CGRectMake(proposedContentOffset.x,
-//                                   0.0f,
-//                                   self.collectionView.bounds.size.width,
-//                                   self.collectionView.bounds.size.height);
-//    
-//    NSArray *array = [super layoutAttributesForElementsInRect:targetRect];
-//    for (UICollectionViewLayoutAttributes* layoutAttributes in array){
-//        CGFloat distanceFromCenter = layoutAttributes.center.x - horizontalCenter;
-//        if(ABS(distanceFromCenter) < ABS(offsetAdjustment)){
-//            offsetAdjustment = distanceFromCenter;
-//        }
-//    }
-//    
-//    return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y);
-//}
+- (CGPoint)targetContentOffsetForProposedContentOffset:(CGPoint)proposedContentOffset
+                                 withScrollingVelocity:(CGPoint)velocity{
+    CGFloat offsetAdjustment = CGFLOAT_MAX;
+    CGFloat horizontalCenter = proposedContentOffset.x + (CGRectGetWidth(self.collectionView.bounds) / 2.0f);
+    CGRect targetRect = CGRectMake(proposedContentOffset.x,
+                                   0.0f,
+                                   self.collectionView.bounds.size.width,
+                                   self.collectionView.bounds.size.height);
+    
+    NSArray *array = [super layoutAttributesForElementsInRect:targetRect];
+    for (UICollectionViewLayoutAttributes* layoutAttributes in array){
+        CGFloat distanceFromCenter = layoutAttributes.center.x - horizontalCenter;
+        if(ABS(distanceFromCenter) < ABS(offsetAdjustment)){
+            offsetAdjustment = distanceFromCenter;
+        }
+    }
+    
+    return CGPointMake(proposedContentOffset.x + offsetAdjustment, proposedContentOffset.y);
+}
 
 
 

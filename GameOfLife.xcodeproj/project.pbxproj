@@ -168,10 +168,10 @@
 		C6BBEE28176D91B600C85BAE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */,
-				C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */,
 				C6BBEDFF176D8F4500C85BAE /* VWWViewController.h */,
 				C6BBEE00176D8F4500C85BAE /* VWWViewController.m */,
+				C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */,
+				C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */,
 				C6BBEE25176D91B100C85BAE /* VWWCollectionViewCell.h */,
 				C6BBEE26176D91B100C85BAE /* VWWCollectionViewCell.m */,
 			);
@@ -461,6 +461,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "GameOfLifeTests/GameOfLifeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -479,6 +480,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GameOfLife/GameOfLife-Prefix.pch";
 				INFOPLIST_FILE = "GameOfLifeTests/GameOfLifeTests-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
