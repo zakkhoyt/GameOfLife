@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C638845B176E3B810089CE9D /* VWWCGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C638845A176E3B810089CE9D /* VWWCGViewController.m */; };
 		C6388461176E3D160089CE9D /* VWWCGView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388460176E3D160089CE9D /* VWWCGView.m */; };
+		C6388464176E505F0089CE9D /* VWWGOLLife.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388463176E505F0089CE9D /* VWWGOLLife.m */; };
+		C6388466176E50C80089CE9D /* VWWGOLLifeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388465176E50C80089CE9D /* VWWGOLLifeTest.m */; };
+		C638846A176E55280089CE9D /* VWWCGLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388469176E55280089CE9D /* VWWCGLifeViewController.m */; };
+		C638846D176E553F0089CE9D /* VWWCGLifeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C638846C176E553F0089CE9D /* VWWCGLifeView.m */; };
 		C6952EC1176DABA0001E43DC /* VWWCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */; };
 		C6BBEDEB176D8F4500C85BAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEA176D8F4500C85BAE /* Foundation.framework */; };
 		C6BBEDED176D8F4500C85BAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEC176D8F4500C85BAE /* CoreGraphics.framework */; };
@@ -23,7 +27,6 @@
 		C6BBEE0B176D8F4500C85BAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEA176D8F4500C85BAE /* Foundation.framework */; };
 		C6BBEE0C176D8F4500C85BAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEE176D8F4500C85BAE /* UIKit.framework */; };
 		C6BBEE14176D8F4500C85BAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6BBEE12176D8F4500C85BAE /* InfoPlist.strings */; };
-		C6BBEE16176D8F4500C85BAE /* GameOfLifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE15176D8F4500C85BAE /* GameOfLifeTests.m */; };
 		C6BBEE21176D8F5F00C85BAE /* VWWGOLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE20176D8F5F00C85BAE /* VWWGOLCell.m */; };
 		C6BBEE24176D8F7300C85BAE /* VWWGOLPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE23176D8F7300C85BAE /* VWWGOLPhysics.m */; };
 		C6BBEE27176D91B100C85BAE /* VWWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE26176D91B100C85BAE /* VWWCollectionViewCell.m */; };
@@ -44,6 +47,13 @@
 		C638845A176E3B810089CE9D /* VWWCGViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGViewController.m; sourceTree = "<group>"; };
 		C638845F176E3D160089CE9D /* VWWCGView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCGView.h; sourceTree = "<group>"; };
 		C6388460176E3D160089CE9D /* VWWCGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGView.m; sourceTree = "<group>"; };
+		C6388462176E505F0089CE9D /* VWWGOLLife.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWGOLLife.h; sourceTree = "<group>"; };
+		C6388463176E505F0089CE9D /* VWWGOLLife.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLife.m; sourceTree = "<group>"; };
+		C6388465176E50C80089CE9D /* VWWGOLLifeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLifeTest.m; sourceTree = "<group>"; };
+		C6388468176E55280089CE9D /* VWWCGLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCGLifeViewController.h; sourceTree = "<group>"; };
+		C6388469176E55280089CE9D /* VWWCGLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGLifeViewController.m; sourceTree = "<group>"; };
+		C638846B176E553F0089CE9D /* VWWCGLifeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCGLifeView.h; sourceTree = "<group>"; };
+		C638846C176E553F0089CE9D /* VWWCGLifeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGLifeView.m; sourceTree = "<group>"; };
 		C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C6BBEDE7176D8F4500C85BAE /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,6 +131,17 @@
 			name = CG;
 			sourceTree = "<group>";
 		};
+		C6388467176E55090089CE9D /* CGLIfe */ = {
+			isa = PBXGroup;
+			children = (
+				C6388468176E55280089CE9D /* VWWCGLifeViewController.h */,
+				C6388469176E55280089CE9D /* VWWCGLifeViewController.m */,
+				C638846B176E553F0089CE9D /* VWWCGLifeView.h */,
+				C638846C176E553F0089CE9D /* VWWCGLifeView.m */,
+			);
+			name = CGLIfe;
+			sourceTree = "<group>";
+		};
 		C6BBEDDE176D8F4500C85BAE = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +202,7 @@
 			isa = PBXGroup;
 			children = (
 				C6BBEE15176D8F4500C85BAE /* GameOfLifeTests.m */,
+				C6388465176E50C80089CE9D /* VWWGOLLifeTest.m */,
 				C6BBEE10176D8F4500C85BAE /* Supporting Files */,
 			);
 			path = GameOfLifeTests;
@@ -198,6 +220,7 @@
 		C6BBEE28176D91B600C85BAE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C6388467176E55090089CE9D /* CGLIfe */,
 				C6388458176E3B6C0089CE9D /* CG */,
 				C6388457176E3B5F0089CE9D /* CV */,
 			);
@@ -219,6 +242,8 @@
 				C6BBEE20176D8F5F00C85BAE /* VWWGOLCell.m */,
 				C6BBEE22176D8F7300C85BAE /* VWWGOLPhysics.h */,
 				C6BBEE23176D8F7300C85BAE /* VWWGOLPhysics.m */,
+				C6388462176E505F0089CE9D /* VWWGOLLife.h */,
+				C6388463176E505F0089CE9D /* VWWGOLLife.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -322,8 +347,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BBEE01176D8F4500C85BAE /* VWWViewController.m in Sources */,
+				C6388464176E505F0089CE9D /* VWWGOLLife.m in Sources */,
 				C6BBEE27176D91B100C85BAE /* VWWCollectionViewCell.m in Sources */,
+				C638846D176E553F0089CE9D /* VWWCGLifeView.m in Sources */,
 				C6BBEE21176D8F5F00C85BAE /* VWWGOLCell.m in Sources */,
+				C638846A176E55280089CE9D /* VWWCGLifeViewController.m in Sources */,
 				C6952EC1176DABA0001E43DC /* VWWCollectionViewFlowLayout.m in Sources */,
 				C6BBEDF7176D8F4500C85BAE /* main.m in Sources */,
 				C638845B176E3B810089CE9D /* VWWCGViewController.m in Sources */,
@@ -337,7 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6BBEE16176D8F4500C85BAE /* GameOfLifeTests.m in Sources */,
+				C6388466176E50C80089CE9D /* VWWGOLLifeTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GameOfLife/GameOfLife-Prefix.pch";
 				INFOPLIST_FILE = "GameOfLife/GameOfLife-Info.plist";
@@ -465,6 +494,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GameOfLife/GameOfLife-Prefix.pch";
 				INFOPLIST_FILE = "GameOfLife/GameOfLife-Info.plist";

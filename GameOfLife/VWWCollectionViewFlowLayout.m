@@ -25,12 +25,12 @@ static const CGFloat kMaxZoom = 0.3f;
 }
 
 - (NSArray*)layoutAttributesForElementsInRect:(CGRect)rect { // 1
-    CGRect visibleRect = (CGRect){
-        .origin = self.collectionView.contentOffset,
-        .size = self.collectionView.bounds.size
-    };
+//    CGRect visibleRect = (CGRect){
+//        .origin = self.collectionView.contentOffset,
+//        .size = self.collectionView.bounds.size
+//    };
     
-    CGFloat maxDistance = visibleRect.size.width * kMaxDistancePercentage;
+//    CGFloat maxDistance = visibleRect.size.width * kMaxDistancePercentage;
     NSArray *array = [super layoutAttributesForElementsInRect:rect];
     for (UICollectionViewLayoutAttributes *attributes in array) {
 ///        CGFloat distance = CGRectGetMidX(visibleRect) - attributes.center.x;

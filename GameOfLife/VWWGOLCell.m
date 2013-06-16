@@ -56,4 +56,12 @@
 -(NSString*)description{
     return [NSString stringWithFormat:@"%d %d %@", self.x, self.y, self.alive ? @"1" : @"0"];
 }
+
+-(NSString*)key{
+    return [NSString stringWithFormat:@"%d,%d", self.x, self.y];
+}
+
++(NSString*)keyFromX:(NSInteger)x andY:(NSInteger)y{
+    return [NSString stringWithFormat:@"%d,%d", x, y];
+}
 @end

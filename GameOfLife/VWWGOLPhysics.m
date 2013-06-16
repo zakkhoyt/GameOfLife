@@ -94,7 +94,7 @@
 -(void)start{
     if(_running == YES) return;
     _running = YES;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(processTimer) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(processTimer) userInfo:nil repeats:YES];
     NSLog(@"******************* BEGIN");
 }
 -(void)stop{
@@ -328,7 +328,7 @@
     
     
     for(NSInteger index = 0; index < self.cells.count; index++){
-        
+    
     }
     
 #endif

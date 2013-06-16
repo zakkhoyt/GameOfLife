@@ -13,7 +13,10 @@
 @property (nonatomic, readonly) NSInteger y;
 @property (nonatomic, readonly) BOOL alive;
 @property (nonatomic, strong, readonly) UIColor *color;
+
 -(id)initWithPositionX:(NSInteger)x andY:(NSInteger)y alive:(BOOL)alive;
 -(NSString*)description;
+-(NSString*)key;
++(NSString*)keyFromX:(NSInteger)x andY:(NSInteger)y;
 @end
 
