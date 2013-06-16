@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSMutableArray *evolvedCells;
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) BOOL running;
-
+@property (nonatomic) dispatch_queue_t queue;
 @end
 
 @implementation VWWGOLPhysics
@@ -38,6 +38,7 @@
 -(id)initWithWidth:(NSInteger)width height:(NSInteger)height{
     self = [super init];
     if(self){
+        _queue = dispatch_queue_create("com.vaporwareworld.gameoflife", NULL);
         _cells = [@[]mutableCopy];
         _evolvedCells = [@[]mutableCopy];
         _width = width;
@@ -282,22 +283,26 @@
 
 -(void)processTimer{
 
+    dispatch_async(self.queue, ^{
     NSLog(@"---------- Evolving a generation");
-    [self.evolvedCells removeAllObjects];
-    [self processLivingCells];
-    [self processDeadCells];
-    
-//    [self printCells];
-    
-    if([self checkForStaleGeneration] == YES){
-        // TODO: 
-    }
-
-    [self.cells removeAllObjects];
-    self.cells = [[NSArray arrayWithArray:self.evolvedCells]mutableCopy];
-
-    [self.delegate renderCells];
-    NSLog(@"");
+        [self.evolvedCells removeAllObjects];
+        [self processLivingCells];
+        [self processDeadCells];
+        
+        //    [self printCells];
+        
+        if([self checkForStaleGeneration] == YES){
+            // TODO:
+        }
+        
+        [self.cells removeAllObjects];
+        self.cells = [[NSArray arrayWithArray:self.evolvedCells]mutableCopy];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            [self.delegate renderCells];
+            NSLog(@"");
+        });
+    });
 }
 
 -(BOOL)checkForStaleGeneration{
