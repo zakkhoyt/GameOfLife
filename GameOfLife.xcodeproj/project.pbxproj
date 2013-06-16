@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C6952EC1176DABA0001E43DC /* VWWCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */; };
 		C6BBEDEB176D8F4500C85BAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEA176D8F4500C85BAE /* Foundation.framework */; };
 		C6BBEDED176D8F4500C85BAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEC176D8F4500C85BAE /* CoreGraphics.framework */; };
 		C6BBEDEF176D8F4500C85BAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEE176D8F4500C85BAE /* UIKit.framework */; };
@@ -21,6 +22,9 @@
 		C6BBEE0C176D8F4500C85BAE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEE176D8F4500C85BAE /* UIKit.framework */; };
 		C6BBEE14176D8F4500C85BAE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C6BBEE12176D8F4500C85BAE /* InfoPlist.strings */; };
 		C6BBEE16176D8F4500C85BAE /* GameOfLifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE15176D8F4500C85BAE /* GameOfLifeTests.m */; };
+		C6BBEE21176D8F5F00C85BAE /* VWWGOLCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE20176D8F5F00C85BAE /* VWWGOLCell.m */; };
+		C6BBEE24176D8F7300C85BAE /* VWWGOLPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE23176D8F7300C85BAE /* VWWGOLPhysics.m */; };
+		C6BBEE27176D91B100C85BAE /* VWWCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE26176D91B100C85BAE /* VWWCollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C6BBEDE7176D8F4500C85BAE /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6BBEDEA176D8F4500C85BAE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C6BBEDEC176D8F4500C85BAE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +59,12 @@
 		C6BBEE11176D8F4500C85BAE /* GameOfLifeTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GameOfLifeTests-Info.plist"; sourceTree = "<group>"; };
 		C6BBEE13176D8F4500C85BAE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C6BBEE15176D8F4500C85BAE /* GameOfLifeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameOfLifeTests.m; sourceTree = "<group>"; };
+		C6BBEE1F176D8F5F00C85BAE /* VWWGOLCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWGOLCell.h; sourceTree = "<group>"; };
+		C6BBEE20176D8F5F00C85BAE /* VWWGOLCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLCell.m; sourceTree = "<group>"; };
+		C6BBEE22176D8F7300C85BAE /* VWWGOLPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWGOLPhysics.h; sourceTree = "<group>"; };
+		C6BBEE23176D8F7300C85BAE /* VWWGOLPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLPhysics.m; sourceTree = "<group>"; };
+		C6BBEE25176D91B100C85BAE /* VWWCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCollectionViewCell.h; sourceTree = "<group>"; };
+		C6BBEE26176D91B100C85BAE /* VWWCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				C6BBEDF0176D8F4500C85BAE /* GameOfLife */,
+				C6BBEDF1176D8F4500C85BAE /* Supporting Files */,
 				C6BBEE0F176D8F4500C85BAE /* GameOfLifeTests */,
 				C6BBEDE9176D8F4500C85BAE /* Frameworks */,
 				C6BBEDE8176D8F4500C85BAE /* Products */,
@@ -112,13 +125,9 @@
 		C6BBEDF0176D8F4500C85BAE /* GameOfLife */ = {
 			isa = PBXGroup;
 			children = (
-				C6BBEDF9176D8F4500C85BAE /* VWWAppDelegate.h */,
-				C6BBEDFA176D8F4500C85BAE /* VWWAppDelegate.m */,
-				C6BBEDFC176D8F4500C85BAE /* Main.storyboard */,
-				C6BBEDFF176D8F4500C85BAE /* VWWViewController.h */,
-				C6BBEE00176D8F4500C85BAE /* VWWViewController.m */,
-				C6BBEE02176D8F4500C85BAE /* Images.xcassets */,
-				C6BBEDF1176D8F4500C85BAE /* Supporting Files */,
+				C6BBEE29176D91D900C85BAE /* Storyboard */,
+				C6BBEE28176D91B600C85BAE /* Controllers */,
+				C6BBEE2A176D91E300C85BAE /* Model */,
 			);
 			path = GameOfLife;
 			sourceTree = "<group>";
@@ -126,12 +135,16 @@
 		C6BBEDF1176D8F4500C85BAE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6BBEE02176D8F4500C85BAE /* Images.xcassets */,
+				C6BBEDF9176D8F4500C85BAE /* VWWAppDelegate.h */,
+				C6BBEDFA176D8F4500C85BAE /* VWWAppDelegate.m */,
 				C6BBEDF2176D8F4500C85BAE /* GameOfLife-Info.plist */,
 				C6BBEDF3176D8F4500C85BAE /* InfoPlist.strings */,
 				C6BBEDF6176D8F4500C85BAE /* main.m */,
 				C6BBEDF8176D8F4500C85BAE /* GameOfLife-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = GameOfLife;
 			sourceTree = "<group>";
 		};
 		C6BBEE0F176D8F4500C85BAE /* GameOfLifeTests */ = {
@@ -150,6 +163,38 @@
 				C6BBEE12176D8F4500C85BAE /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C6BBEE28176D91B600C85BAE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */,
+				C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */,
+				C6BBEDFF176D8F4500C85BAE /* VWWViewController.h */,
+				C6BBEE00176D8F4500C85BAE /* VWWViewController.m */,
+				C6BBEE25176D91B100C85BAE /* VWWCollectionViewCell.h */,
+				C6BBEE26176D91B100C85BAE /* VWWCollectionViewCell.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C6BBEE29176D91D900C85BAE /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				C6BBEDFC176D8F4500C85BAE /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		C6BBEE2A176D91E300C85BAE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C6BBEE1F176D8F5F00C85BAE /* VWWGOLCell.h */,
+				C6BBEE20176D8F5F00C85BAE /* VWWGOLCell.m */,
+				C6BBEE22176D8F7300C85BAE /* VWWGOLPhysics.h */,
+				C6BBEE23176D8F7300C85BAE /* VWWGOLPhysics.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,7 +296,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6BBEE01176D8F4500C85BAE /* VWWViewController.m in Sources */,
+				C6BBEE27176D91B100C85BAE /* VWWCollectionViewCell.m in Sources */,
+				C6BBEE21176D8F5F00C85BAE /* VWWGOLCell.m in Sources */,
+				C6952EC1176DABA0001E43DC /* VWWCollectionViewFlowLayout.m in Sources */,
 				C6BBEDF7176D8F4500C85BAE /* main.m in Sources */,
+				C6BBEE24176D8F7300C85BAE /* VWWGOLPhysics.m in Sources */,
 				C6BBEDFB176D8F4500C85BAE /* VWWAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,6 +504,7 @@
 				C6BBEE1B176D8F4500C85BAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C6BBEE1C176D8F4500C85BAE /* Build configuration list for PBXNativeTarget "GameOfLifeTests" */ = {
 			isa = XCConfigurationList;
@@ -463,6 +513,7 @@
 				C6BBEE1E176D8F4500C85BAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
