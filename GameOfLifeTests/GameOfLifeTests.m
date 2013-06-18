@@ -29,6 +29,64 @@
     [super tearDown];
 }
 
+
+
+//- (void)test3x1Line
+//{
+//    VWWGOLCell *cell = [[VWWGOLCell alloc]initWithPositionX:1 andY:2 alive:YES];
+//    [self.physics addCell:cell];
+//    
+//    
+//    
+//    VWWGOLCell *cell1 = [[VWWGOLCell alloc]initWithPositionX:2 andY:2 alive:YES];
+//    [self.physics addCell:cell1];
+//    
+//    
+//    
+//    VWWGOLCell *cell2 = [[VWWGOLCell alloc]initWithPositionX:3 andY:2 alive:YES];
+//    [self.physics addCell:cell2];
+//    
+//    
+//    [self.physics processTimer];
+//    
+//    XCTAssertTrue((BOOL)(self.physics.cells.count == 3), @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    
+//    cell = self.physics.cells[0];
+//    XCTAssertTrue(cell, @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    cell = self.physics.cells[1];
+//    XCTAssertTrue(cell, @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    cell = self.physics.cells[2];
+//    XCTAssertTrue(cell, @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    
+//    [self.physics processTimer];
+//    
+//    XCTAssertTrue((self.physics.cells.count == 3), @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    
+//    cell = self.physics.cells[0];
+//    XCTAssertTrue(cell, @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    cell = self.physics.cells[1];
+//    XCTAssertTrue(cell, @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    cell = self.physics.cells[2];
+//    XCTAssertTrue(cell, @"failed to rotate 3x1 line. %s", __func__);
+//    
+//    
+//    NSLog(@"");
+//    
+//    
+//    
+//    
+//}
+
+
+
+
 //Any live cell with fewer than two live neighbours dies, as if caused by under-population.
 // xxxxx
 // x1xxx

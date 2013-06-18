@@ -34,7 +34,7 @@
     
 //    CGFloat red =  (CGFloat)rand()/(CGFloat)RAND_MAX;
 //    CGFloat blue = (CGFloat)rand()/(CGFloat)RAND_MAX;
-//    CGFloat green = (CGFloat)rand()/(CGFloat)RAND_MAX;
+//    CGFloat green = (CGFloat  )rand()/(CGFloat)RAND_MAX;
 //    CGFloat alpha = 0.0;
 //    
     

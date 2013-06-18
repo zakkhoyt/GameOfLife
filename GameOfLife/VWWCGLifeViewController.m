@@ -17,8 +17,14 @@
 
 //#define WIDTH 20
 //#define HEIGHT 20
-static NSInteger kGOLWidth = 100;
-static NSInteger kGOLHeight = 100;
+static NSInteger kGOLWidth = 64;
+static NSInteger kGOLHeight = 92;
+
+//static NSInteger kGOLWidth = 200;
+//static NSInteger kGOLHeight = 200;
+
+//static NSInteger kGOLWidth = 320;
+//static NSInteger kGOLHeight = 320;
 
 
 static float kInitialFrequency = 0.1;
@@ -100,6 +106,9 @@ static float kInitialFrequency = 0.1;
     //    NSLog(@"changed generate frequency to %f", self.generateFrequency);
 }
 
+- (IBAction)oneGenerationButtonTouchUpInside:(id)sender {
+    [self.life processTimer];
+}
 
 #pragma mark Implements VWWGOLLifeDelegate
 -(void)renderCells{

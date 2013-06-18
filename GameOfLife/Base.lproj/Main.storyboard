@@ -162,7 +162,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ky-Ag-ofQ" customClass="VWWCGLifeView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="469"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -179,8 +179,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="startButtonTouchUpInside:" destination="u5l-2S-G0r" eventType="touchUpInside" id="3Oy-YE-8Il"/>
-                                    <action selector="startButtonTouchUpInside:" destination="HGv-q2-Uga" eventType="touchUpInside" id="amp-08-VdV"/>
+                                    <action selector="startButtonTouchUpInside:" destination="u5l-2S-G0r" eventType="touchUpInside" id="idf-3g-yD0"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EYF-1W-rix">
@@ -196,7 +195,6 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="generateButtonTouchUpInside:" destination="HGv-q2-Uga" eventType="touchUpInside" id="Gfe-N9-JSH"/>
                                     <action selector="generateButtonTouchUpInside:" destination="u5l-2S-G0r" eventType="touchUpInside" id="YSH-TQ-XAI"/>
                                 </connections>
                             </button>
@@ -208,6 +206,22 @@
                                     <action selector="frequencySliderValueChanged:" destination="u5l-2S-G0r" eventType="valueChanged" id="Pbv-61-s5X"/>
                                 </connections>
                             </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81m-zV-rhL">
+                                <rect key="frame" x="93" y="497" width="73" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="One">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="oneGenerationButtonTouchUpInside:" destination="u5l-2S-G0r" eventType="touchUpInside" id="mwJ-vN-au4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -224,62 +238,6 @@
             <point key="canvasLocation" x="359" y="1090"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="UICollectionReusableView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
-        </class>
-        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
-        </class>
-        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
-        </class>
-        <class className="UICollectionViewLayout" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewLayout.h"/>
-        </class>
-        <class className="VWWCGLifeView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VWWCGLifeView.h"/>
-        </class>
-        <class className="VWWCGLifeViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VWWCGLifeViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="frequencySliderValueChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="generateButtonTouchUpInside:"/>
-                <relationship kind="action" name="startButtonTouchUpInside:"/>
-                <relationship kind="outlet" name="cgLifeView" candidateClass="VWWCGLifeView"/>
-                <relationship kind="outlet" name="frequencySlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="generateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="VWWCGView" superclassName="UIView">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VWWCGView.h"/>
-        </class>
-        <class className="VWWCGViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VWWCGViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="frequencySliderValueChanged:" candidateClass="UISlider"/>
-                <relationship kind="action" name="generateButtonTouchUpInside:"/>
-                <relationship kind="action" name="startButtonTouchUpInside:"/>
-                <relationship kind="outlet" name="cgView" candidateClass="VWWCGView"/>
-                <relationship kind="outlet" name="frequencySlider" candidateClass="UISlider"/>
-                <relationship kind="outlet" name="generateButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-        <class className="VWWCollectionViewCell" superclassName="UICollectionViewCell">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VWWCollectionViewCell.h"/>
-        </class>
-        <class className="VWWViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/VWWViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="startButtonTouchUpInside:"/>
-                <relationship kind="action" name="useCGButtonTouchUpInside:"/>
-                <relationship kind="outlet" name="collectionView" candidateClass="UICollectionView"/>
-                <relationship kind="outlet" name="startButton" candidateClass="UIButton"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

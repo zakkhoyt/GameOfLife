@@ -26,7 +26,7 @@
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect
 {
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
     
     //    self.backgroundColor = [UIColor clearColor];
     

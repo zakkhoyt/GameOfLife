@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSTimer *timer;
 @property (nonatomic) BOOL running;
 @property (nonatomic) dispatch_queue_t queue;
+@property (nonatomic, strong) NSMutableDictionary *examinedDeadCells;
 @end
 
 
@@ -39,6 +40,7 @@
         _width = width;
         _height = height;
         _running = NO;
+        _examinedDeadCells = [@{}mutableCopy];
         
     }
     return self;
@@ -77,13 +79,14 @@
 -(void)start{
     if(_running == YES) return;
     _running = YES;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(processTimer) userInfo:nil repeats:YES];
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:.20 target:self selector:@selector(processTimer) userInfo:nil repeats:YES];
     NSLog(@"******************* BEGIN");
+    [self processTimer];
 }
 -(void)stop{
     if(_running == NO) return;
     _running = NO;
-    [self.timer invalidate];
+//    [self.timer invalidate];
     NSLog(@"******************* END");
 }
 
@@ -257,25 +260,25 @@
     VWWGOLCell *cell0 = [self deadNeighborCell0FromCell:cell];
     if(cell0) [deadNeighbors setObject:cell0 forKey:cell0.key];
     
-    VWWGOLCell *cell1 = [self deadNeighborCell0FromCell:cell];
+    VWWGOLCell *cell1 = [self deadNeighborCell1FromCell:cell];
     if(cell1) [deadNeighbors setObject:cell1 forKey:cell1.key];
     
-    VWWGOLCell *cell2 = [self deadNeighborCell0FromCell:cell];
+    VWWGOLCell *cell2 = [self deadNeighborCell2FromCell:cell];
     if(cell2) [deadNeighbors setObject:cell2 forKey:cell2.key];
     
-    VWWGOLCell *cell3 = [self deadNeighborCell0FromCell:cell];
+    VWWGOLCell *cell3 = [self deadNeighborCell3FromCell:cell];
     if(cell3) [deadNeighbors setObject:cell3 forKey:cell3.key];
     
-    VWWGOLCell *cell4 = [self deadNeighborCell0FromCell:cell];
+    VWWGOLCell *cell4 = [self deadNeighborCell4FromCell:cell];
     if(cell4) [deadNeighbors setObject:cell4 forKey:cell4.key];
     
-    VWWGOLCell *cell5 = [self deadNeighborCell0FromCell:cell];
+    VWWGOLCell *cell5 = [self deadNeighborCell5FromCell:cell];
     if(cell5) [deadNeighbors setObject:cell5 forKey:cell5.key];
     
-    VWWGOLCell *cell6 = [self deadNeighborCell0FromCell:cell];
+    VWWGOLCell *cell6 = [self deadNeighborCell6FromCell:cell];
     if(cell6) [deadNeighbors setObject:cell6 forKey:cell6.key];
     
-    VWWGOLCell *cell7 = [self deadNeighborCell0FromCell:cell];
+    VWWGOLCell *cell7 = [self deadNeighborCell7FromCell:cell];
     if(cell7) [deadNeighbors setObject:cell7 forKey:cell7.key];
 
     return [NSDictionary dictionaryWithDictionary:deadNeighbors];
@@ -371,7 +374,7 @@
 }
 
 -(void)processDeadCells{
-    
+    [self.examinedDeadCells removeAllObjects];
     
     // For each live cell
     for(VWWGOLCell *cell in [self.cells allValues]){
@@ -379,28 +382,34 @@
         NSDictionary *deadNeighbors = [self getDeadNeighborCellsFromCell:cell];
         // for each dn in dns
         for(VWWGOLCell *deadNeighbor in [deadNeighbors allValues]){
-            // get live neighbors
-            NSArray *liveNeighbors = [self getLivingNeighborCellsFromCell:deadNeighbor];
-            // if ln.count == 3
-            if(liveNeighbors.count == 3){
-                // spring to life
-                [self evolveCell:deadNeighbor];
+            if([self.examinedDeadCells objectForKey:deadNeighbor.key] == nil){
+                [self.examinedDeadCells setObject:deadNeighbor forKey:deadNeighbor.key];
+                // get live neighbors
+                NSArray *liveNeighbors = [self getLivingNeighborCellsFromCell:deadNeighbor];
+                // if ln.count == 3
+                if(liveNeighbors.count == 3){
+                    // spring to life
+                    [self evolveCell:deadNeighbor];
+                }
             }
+            
         }
     }
 }
 
 
 -(void)processTimer{
-    
+    if(self.running == NO) return;
     dispatch_async(self.queue, ^{
+        
         @autoreleasepool {
-            
-            
+    
+//#if defined(VWW_VERBOSE_LOGGING)
             NSLog(@"---------- Evolving a generation");
+//#endif
             [self.evolvedCells removeAllObjects];
             [self processLivingCells];
-//            [self processDeadCells];
+            [self processDeadCells];
 //
 //            [self printCells];
 //            
@@ -412,11 +421,15 @@
             self.cells = [[NSDictionary dictionaryWithDictionary:self.evolvedCells]mutableCopy];
             
         }
-        dispatch_async(dispatch_get_main_queue(), ^{
+        
+        if(self.running == NO) return;
+        dispatch_sync(dispatch_get_main_queue(), ^{
             [self.delegate renderCells];
-            NSLog(@"");
+//            NSLog(@"");
         });
+        [self processTimer];
     });
+//    [self processTimer];
 }
 
 //-(BOOL)checkForStaleGeneration{

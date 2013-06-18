@@ -10,9 +10,14 @@
 		C638845B176E3B810089CE9D /* VWWCGViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C638845A176E3B810089CE9D /* VWWCGViewController.m */; };
 		C6388461176E3D160089CE9D /* VWWCGView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388460176E3D160089CE9D /* VWWCGView.m */; };
 		C6388464176E505F0089CE9D /* VWWGOLLife.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388463176E505F0089CE9D /* VWWGOLLife.m */; };
-		C6388466176E50C80089CE9D /* VWWGOLLifeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388465176E50C80089CE9D /* VWWGOLLifeTest.m */; };
+		C6388466176E50C80089CE9D /* VWWGOLLifeRule1Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388465176E50C80089CE9D /* VWWGOLLifeRule1Tests.m */; };
 		C638846A176E55280089CE9D /* VWWCGLifeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C6388469176E55280089CE9D /* VWWCGLifeViewController.m */; };
 		C638846D176E553F0089CE9D /* VWWCGLifeView.m in Sources */ = {isa = PBXBuildFile; fileRef = C638846C176E553F0089CE9D /* VWWCGLifeView.m */; };
+		C66594EC17700C0E00D31569 /* VWWGOLLIfeRule2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C66594EB17700C0E00D31569 /* VWWGOLLIfeRule2Tests.m */; };
+		C66594EE17700ECE00D31569 /* VWWGOLLifeRule3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C66594ED17700ECE00D31569 /* VWWGOLLifeRule3Tests.m */; };
+		C66594F0177010A200D31569 /* VWWGOLLifeRule4Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C66594EF177010A200D31569 /* VWWGOLLifeRule4Tests.m */; };
+		C66594F21770158700D31569 /* VWWGOLLifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C66594F11770158700D31569 /* VWWGOLLifeTests.m */; };
+		C66594F31770190200D31569 /* GameOfLifeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BBEE15176D8F4500C85BAE /* GameOfLifeTests.m */; };
 		C6952EC1176DABA0001E43DC /* VWWCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */; };
 		C6BBEDEB176D8F4500C85BAE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEA176D8F4500C85BAE /* Foundation.framework */; };
 		C6BBEDED176D8F4500C85BAE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6BBEDEC176D8F4500C85BAE /* CoreGraphics.framework */; };
@@ -49,11 +54,15 @@
 		C6388460176E3D160089CE9D /* VWWCGView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGView.m; sourceTree = "<group>"; };
 		C6388462176E505F0089CE9D /* VWWGOLLife.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWGOLLife.h; sourceTree = "<group>"; };
 		C6388463176E505F0089CE9D /* VWWGOLLife.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLife.m; sourceTree = "<group>"; };
-		C6388465176E50C80089CE9D /* VWWGOLLifeTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLifeTest.m; sourceTree = "<group>"; };
+		C6388465176E50C80089CE9D /* VWWGOLLifeRule1Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLifeRule1Tests.m; sourceTree = "<group>"; };
 		C6388468176E55280089CE9D /* VWWCGLifeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCGLifeViewController.h; sourceTree = "<group>"; };
 		C6388469176E55280089CE9D /* VWWCGLifeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGLifeViewController.m; sourceTree = "<group>"; };
 		C638846B176E553F0089CE9D /* VWWCGLifeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VWWCGLifeView.h; sourceTree = "<group>"; };
 		C638846C176E553F0089CE9D /* VWWCGLifeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWCGLifeView.m; sourceTree = "<group>"; };
+		C66594EB17700C0E00D31569 /* VWWGOLLIfeRule2Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLIfeRule2Tests.m; sourceTree = "<group>"; };
+		C66594ED17700ECE00D31569 /* VWWGOLLifeRule3Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLifeRule3Tests.m; sourceTree = "<group>"; };
+		C66594EF177010A200D31569 /* VWWGOLLifeRule4Tests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLifeRule4Tests.m; sourceTree = "<group>"; };
+		C66594F11770158700D31569 /* VWWGOLLifeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VWWGOLLifeTests.m; sourceTree = "<group>"; };
 		C6952EBF176DAB23001E43DC /* VWWCollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VWWCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		C6952EC0176DAB23001E43DC /* VWWCollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VWWCollectionViewFlowLayout.m; sourceTree = "<group>"; };
 		C6BBEDE7176D8F4500C85BAE /* GameOfLife.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameOfLife.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,7 +211,11 @@
 			isa = PBXGroup;
 			children = (
 				C6BBEE15176D8F4500C85BAE /* GameOfLifeTests.m */,
-				C6388465176E50C80089CE9D /* VWWGOLLifeTest.m */,
+				C6388465176E50C80089CE9D /* VWWGOLLifeRule1Tests.m */,
+				C66594EB17700C0E00D31569 /* VWWGOLLIfeRule2Tests.m */,
+				C66594ED17700ECE00D31569 /* VWWGOLLifeRule3Tests.m */,
+				C66594EF177010A200D31569 /* VWWGOLLifeRule4Tests.m */,
+				C66594F11770158700D31569 /* VWWGOLLifeTests.m */,
 				C6BBEE10176D8F4500C85BAE /* Supporting Files */,
 			);
 			path = GameOfLifeTests;
@@ -365,7 +378,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C6388466176E50C80089CE9D /* VWWGOLLifeTest.m in Sources */,
+				C66594F31770190200D31569 /* GameOfLifeTests.m in Sources */,
+				C66594EE17700ECE00D31569 /* VWWGOLLifeRule3Tests.m in Sources */,
+				C66594F21770158700D31569 /* VWWGOLLifeTests.m in Sources */,
+				C66594EC17700C0E00D31569 /* VWWGOLLIfeRule2Tests.m in Sources */,
+				C66594F0177010A200D31569 /* VWWGOLLifeRule4Tests.m in Sources */,
+				C6388466176E50C80089CE9D /* VWWGOLLifeRule1Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
